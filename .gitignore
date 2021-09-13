@@ -1,0 +1,6 @@
+/.vscode
+images/train/thermal_8_bit/*.jpeg
+images/val/thermal_8_bit/*.jpeg
+images/video/*.jpeg
+/__pycache__
+jetson/out/*.mp4
