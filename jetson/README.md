@@ -30,13 +30,13 @@ Sono stati misurati i tempi di computazione i tre diversi momenti:
 2. inferenza, il tempo che impiega Tensorflow ad interrogare il modello
 3. post-processamento, essenzialmente il ciclo che itera i risultati e disegna le bounding-box
 
-I risultati mostrano un dispendio irrisorio per il pre-processamento e più consistente per la visualizzazione dei risltati, che sono sdi circa 200 millisecondi. Mentre l'inferenza inpiega intorno ai 100 millisecondi. Questo corrisponde ad un totale di 3 FPS.
+I risultati mostrano un dispendio irrisorio per il pre-processamento e più consistente per la visualizzazione dei risltati, che sono di circa 200 millisecondi. Mentre l'inferenza inpiega intorno ai 100 millisecondi. Questo corrisponde ad un totale di 3 FPS.
 
 Una considerazione va fatta per il ciclo di disegno delle bbox: per ottenere l'immagine finale si sfrutta la libreria jetson.utils che a sua volta racchiude codice in CUDA, quindi è il massimo dell'efficienza. La stessa cosa non si può dire per l'estrazione dei dati, che si ritiene essere il principale collo di bottiglia. Infati, si tratta di un ciclo for in Python con una lettura di elementi di array all'interno di un dizionario.
 
 Il caricamento del modello TF è molto lento sulla Jetson. Oltre i dieci minuti. Questo è un problema noto come si può trovare nelle discussioni in rete. Qualcuno ha risolto il problema compilando ed installando una versione del pacchetto protobuf compilato in C++ [TensorFlow/TensorRT (TF-TRT) Revisited](https://jkjung-avt.github.io/tf-trt-revisited/). Inoltre, la prima inferenza sul modello è molto lunga, rsultando in una manciata di secondi di frame neri all'inizio del video in uscita.
 
-In ulltima analisi, si vuole confrontare le prestazioni che si ottiene da una generica rete SSD Mobilenet V2 (non allenato sui dati termici) implementata con la libreria jetson-inference. Il risultato è di circa 20 FPS. E' preferibile, almeno alle versioni attuali del pacchetto di applicaione, costruire il modello in Pytorch, perchè esportare in ONNX crea meno problemi di Tensorflow e dall'ONNX si può ottenere un modello ottimizzato in TensorRT puro più performante di TF-TRT. 
+In ulltima analisi, si vuole confrontare le prestazioni che si ottiene da una generica rete SSD Mobilenet V2 (non allenato sui dati termici) implementata con la libreria jetson-inference. Il risultato è di circa 20 FPS. E' preferibile, almeno alle versioni attuali del pacchetto di applicaione, costruire il modello in Pytorch, perchè esportare in ONNX crea meno problemi di Tensorflow e dall'ONNX si può ottenere un modello ottimizzato in TensorRT pure più performante di TF-TRT. 
 
 ![out](out/output_sample.png)
 
