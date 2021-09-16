@@ -48,4 +48,4 @@ I seguenti punteggi sono stati ottenuti con 100 epoche di addestramento.
 |Average Recall     (AR)|0.50:0.95 |medium|100|0.257|
 |Average Recall     (AR)|0.50:0.95 |large|100|0.640|
 
-![res](out\inference_result.jpeg)
+![res](out/inference_result.jpeg)
