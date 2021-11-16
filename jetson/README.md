@@ -40,4 +40,3 @@ In ulltima analisi, si vuole confrontare le prestazioni che si ottiene da una ge
 
 ![out](out/output_sample.png)
 
-![video sample](out/output_tf_Trim.mp4)
