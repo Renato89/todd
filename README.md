@@ -37,6 +37,6 @@ Per quanto riguarda la precisione è stata usat la metrica COCO. Si riporta qui 
 
 Di seguito viene mostrato un test effettuato sulla Jetson Nano. Il frame rate è ridotto a circa 3 FPS perchè l'elaborazione del risultato ed il disegno delle bounding box viene effettutato tutto sulla scheda, e questo richiede circa 300 ms.
 
-![video sample](doc\sample-output.gif)
+![video sample](doc/sample-output.gif)
 
 Purtroppo, al momento di redigere questo articolo, non si è stati riusciti a completare lo sviluppo attraverso Pytorch. L'ostacolo è stato dovuto alla conversione attraverso il formato ONNX, infatti, TensorRT ancora non supporta tutti i moduli della rete originale che vengono codificati in tale formato. Per proseguire si sarebbe dovuto intervenire manualmente nel file ONNX prima di fornirlo a TensorRT ma il procedimento sarebbe risultato lungo e complesso. Non è avvenuto lo stesso in Tensorflow, perché TF-TRT si occupa di convertire solo i moduli compatibli lasciando gli altri invariati. Dato il continuo contributo da parte di NVIDIA ed i continui aggiornamenti, ci si aspetta in futuro una conversione sempre più agevole.
