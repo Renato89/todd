@@ -95,7 +95,7 @@ Tensorboard è uno strumento per poter visualizzare le metriche del modello. Fun
 Si può utilizzare sia per seguire l'addestramento che al termine per visualizzazione.
 
 ## Esportazione
-Al termine si esporta il modello in formato daved_model di Tensorflow.
+Al termine si esporta il modello in formato saved_model di Tensorflow.
 
     python exporter_main_v2.py \
     --input_type image_tensor \
